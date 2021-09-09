@@ -1,0 +1,86 @@
+{
+  "name": "Pessoa",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "idEmpresa",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dataCadastro",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "isPessoaFisica",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isColaborador",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isMedico",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "ativo",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pessoaEndereco",
+      "otherEntityRelationshipName": "pessoa",
+      "relationshipName": "pessoaEndereco"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pessoaColaborador",
+      "otherEntityRelationshipName": "pessoa",
+      "relationshipName": "pessoaColaborador"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pessoaFisica",
+      "otherEntityRelationshipName": "pessoa",
+      "relationshipName": "pessoaFisica"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pessoaJuridica",
+      "otherEntityRelationshipName": "pessoa",
+      "relationshipName": "pessoaJuridica"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "empresaApp",
+      "otherEntityRelationshipName": "pessoa",
+      "relationshipName": "empresaApp"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pessoaMedico",
+      "otherEntityRelationshipName": "pessoa",
+      "relationshipName": "pessoaMedico"
+    }
+  ],
+  "entityTableName": "pessoa",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["core"],
+  "microserviceName": "core",
+  "clientRootFolder": "core",
+  "databaseType": "sql",
+  "changelogDate": "20210909193006"
+}

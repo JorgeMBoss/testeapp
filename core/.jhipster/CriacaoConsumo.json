@@ -1,0 +1,51 @@
+{
+  "name": "CriacaoConsumo",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "dataSistema",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dataVenda",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dataAviso",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "anotacao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "criacao",
+      "otherEntityRelationshipName": "criacaoConsumo",
+      "relationshipName": "criacao",
+      "ownerSide": true
+    }
+  ],
+  "entityTableName": "criacao_consumo",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["core"],
+  "microserviceName": "core",
+  "clientRootFolder": "core",
+  "databaseType": "sql",
+  "changelogDate": "20210909193606"
+}
