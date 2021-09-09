@@ -1,0 +1,11 @@
+id;id_empresa;data_cadastro;is_pessoa_fisica;is_colaborador;is_medico;ativo
+1;65876;2021-09-09;false;true;false;false
+2;21338;2021-09-09;false;true;true;true
+3;67224;2021-09-08;true;true;false;false
+4;72519;2021-09-09;false;true;true;true
+5;75878;2021-09-08;true;false;true;true
+6;90475;2021-09-08;false;true;false;false
+7;41175;2021-09-09;false;true;false;true
+8;48562;2021-09-09;false;true;true;false
+9;30866;2021-09-08;true;false;false;false
+10;45946;2021-09-09;false;true;true;true

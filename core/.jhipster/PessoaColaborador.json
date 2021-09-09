@@ -1,0 +1,76 @@
+{
+  "name": "PessoaColaborador",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "dataAdimissao",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dataSaida",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "cargaHoraria",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "primeiroHorario",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "segundoHorario",
+      "fieldType": "ZonedDateTime"
+    },
+    {
+      "fieldName": "salario",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "comissao",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "descontoMaximo",
+      "fieldType": "Double"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "pessoaFuncao",
+      "otherEntityRelationshipName": "pessoaColaborador",
+      "relationshipName": "pessoaFuncao",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pessoaParentesco",
+      "otherEntityRelationshipName": "pessoaColaborador",
+      "relationshipName": "pessoaParentesco"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pessoa",
+      "otherEntityRelationshipName": "pessoaColaborador",
+      "relationshipName": "pessoa"
+    }
+  ],
+  "entityTableName": "pessoa_colaborador",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["core"],
+  "microserviceName": "core",
+  "clientRootFolder": "core",
+  "databaseType": "sql",
+  "changelogDate": "20210909193906"
+}

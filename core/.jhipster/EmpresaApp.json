@@ -1,0 +1,52 @@
+{
+  "name": "EmpresaApp",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "razaoSocial",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength", "unique"],
+      "fieldValidateRulesMinlength": "1",
+      "fieldValidateRulesMaxlength": "60"
+    },
+    {
+      "fieldName": "nomeFantasia",
+      "fieldType": "String",
+      "fieldValidateRules": ["minlength", "maxlength"],
+      "fieldValidateRulesMinlength": "2",
+      "fieldValidateRulesMaxlength": "255"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pessoa",
+      "otherEntityRelationshipName": "empresaApp",
+      "relationshipName": "pessoa"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "userApp",
+      "otherEntityRelationshipName": "empresaApp",
+      "relationshipName": "userApp",
+      "ownerSide": true
+    }
+  ],
+  "entityTableName": "empresa_app",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["core"],
+  "microserviceName": "core",
+  "clientRootFolder": "core",
+  "databaseType": "sql",
+  "changelogDate": "20210909194206"
+}
