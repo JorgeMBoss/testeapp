@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Criacao.
+    -->
+    <changeSet id="20210909142246-1" author="jhipster">
+        <createTable tableName="criacao">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="id_empresa" type="bigint">
+                <constraints nullable="false" />
+            </column>
+            <column name="nome" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="sexo" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="porte" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="idade" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="data_nascimento" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="castrado" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="anotacao" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="pedigree" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="ativo" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="criacao_cor_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_criacao__criacao_cor_id" />
+            </column>
+            <column name="criacao_raca_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_criacao__criacao_raca_id" />
+            </column>
+            <column name="criacao_especie_id" type="bigint">
+                <constraints nullable="true" unique="true" uniqueConstraintName="ux_criacao__criacao_especie_id" />
+            </column>
+            <column name="empresa_app_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="pessoa_criacao_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20210909142246-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/criacao.csv"
+                  separator=";"
+                  tableName="criacao">
+            <column name="id" type="numeric"/>
+            <column name="id_empresa" type="numeric"/>
+            <column name="nome" type="string"/>
+            <column name="sexo" type="string"/>
+            <column name="porte" type="string"/>
+            <column name="idade" type="numeric"/>
+            <column name="data_nascimento" type="date"/>
+            <column name="castrado" type="boolean"/>
+            <column name="anotacao" type="string"/>
+            <column name="pedigree" type="boolean"/>
+            <column name="ativo" type="boolean"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

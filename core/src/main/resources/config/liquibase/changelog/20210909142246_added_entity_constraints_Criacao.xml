@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Criacao.
+    -->
+    <changeSet id="20210909142246-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="criacao_cor_id"
+                                 baseTableName="criacao"
+                                 constraintName="fk_criacao__criacao_cor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="criacao_cor"/>
+
+        <addForeignKeyConstraint baseColumnNames="criacao_raca_id"
+                                 baseTableName="criacao"
+                                 constraintName="fk_criacao__criacao_raca_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="criacao_raca"/>
+
+        <addForeignKeyConstraint baseColumnNames="criacao_especie_id"
+                                 baseTableName="criacao"
+                                 constraintName="fk_criacao__criacao_especie_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="criacao_especie"/>
+
+        <addForeignKeyConstraint baseColumnNames="empresa_app_id"
+                                 baseTableName="criacao"
+                                 constraintName="fk_criacao__empresa_app_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="empresa_app"/>
+
+        <addForeignKeyConstraint baseColumnNames="pessoa_criacao_id"
+                                 baseTableName="criacao"
+                                 constraintName="fk_criacao__pessoa_criacao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="pessoa_criacao"/>
+    </changeSet>
+</databaseChangeLog>

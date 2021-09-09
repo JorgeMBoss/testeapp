@@ -1,0 +1,84 @@
+{
+  "name": "PessoaFisca",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "cpf",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "minlength", "maxlength"],
+      "fieldValidateRulesMinlength": "11",
+      "fieldValidateRulesMaxlength": "11"
+    },
+    {
+      "fieldName": "rg",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "dataNascimento",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "idade",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sexo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "estadoCivil",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "naturalidade",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nacionalidade",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "pessoaComplemento",
+      "otherEntityRelationshipName": "pessoaFisca",
+      "relationshipName": "pessoaComplemento",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pessoaParentesco",
+      "otherEntityRelationshipName": "pessoaFisca",
+      "relationshipName": "pessoaParentesco"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pessoa",
+      "otherEntityRelationshipName": "pessoaFisca",
+      "relationshipName": "pessoa"
+    }
+  ],
+  "entityTableName": "pessoa_fisca",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["core"],
+  "microserviceName": "core",
+  "clientRootFolder": "core",
+  "databaseType": "sql",
+  "changelogDate": "20210909141346"
+}

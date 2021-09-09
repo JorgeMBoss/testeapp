@@ -1,0 +1,40 @@
+{
+  "name": "PessoaCriacao",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "idCriacao",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "criacao",
+      "otherEntityRelationshipName": "pessoaCriacao",
+      "relationshipName": "criacao"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pessoa",
+      "otherEntityRelationshipName": "pessoaCriacao",
+      "relationshipName": "pessoa"
+    }
+  ],
+  "entityTableName": "pessoa_criacao",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["core"],
+  "microserviceName": "core",
+  "clientRootFolder": "core",
+  "databaseType": "sql",
+  "changelogDate": "20210909142546"
+}

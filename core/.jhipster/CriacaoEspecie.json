@@ -1,0 +1,39 @@
+{
+  "name": "CriacaoEspecie",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ativo",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "criacao",
+      "otherEntityRelationshipName": "criacaoEspecie",
+      "relationshipName": "criacao",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "criacao_especie",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["core"],
+  "microserviceName": "core",
+  "clientRootFolder": "core",
+  "databaseType": "sql",
+  "changelogDate": "20210909141546"
+}
