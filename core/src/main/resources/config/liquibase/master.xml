@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
+    <property name="clobType" value="longvarchar" dbms="h2"/>
+    <property name="clobType" value="clob" dbms="mysql, oracle, mssql, mariadb, postgresql"/>
+    <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
+    <property name="datetimeType" value="datetime(6)" dbms="mysql, mariadb"/>
+    <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909141346_added_entity_PessoaFisca.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909141446_added_entity_UserApp.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909141546_added_entity_CriacaoEspecie.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909141646_added_entity_CriacaoCor.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909141746_added_entity_PessoaJuridica.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909141846_added_entity_Pessoa.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909141946_added_entity_PessoaEndereco.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142046_added_entity_CriacaoAnamnese.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142146_added_entity_PessoaMedico.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142246_added_entity_Criacao.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142346_added_entity_CriacaoRaca.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142446_added_entity_CriacaoConsumo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142546_added_entity_PessoaCriacao.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142646_added_entity_PessoaFuncao.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142746_added_entity_PessoaColaborador.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142846_added_entity_PessoaParentesco.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142946_added_entity_PessoaComplemento.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909143046_added_entity_EmpresaApp.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20210909141346_added_entity_constraints_PessoaFisca.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909141446_added_entity_constraints_UserApp.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909141746_added_entity_constraints_PessoaJuridica.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909141846_added_entity_constraints_Pessoa.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909141946_added_entity_constraints_PessoaEndereco.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142046_added_entity_constraints_CriacaoAnamnese.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142146_added_entity_constraints_PessoaMedico.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142246_added_entity_constraints_Criacao.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142446_added_entity_constraints_CriacaoConsumo.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142546_added_entity_constraints_PessoaCriacao.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142746_added_entity_constraints_PessoaColaborador.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909142846_added_entity_constraints_PessoaParentesco.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210909143046_added_entity_constraints_EmpresaApp.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+    <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
+</databaseChangeLog>

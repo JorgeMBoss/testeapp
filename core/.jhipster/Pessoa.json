@@ -1,0 +1,79 @@
+{
+  "name": "Pessoa",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "idEmpresa",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "dataCadastro",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "ativo",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pessoaEndereco",
+      "otherEntityRelationshipName": "pessoa",
+      "relationshipName": "pessoaEndereco"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pessoaColaborador",
+      "otherEntityRelationshipName": "pessoa",
+      "relationshipName": "pessoaColaborador"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pessoaFisca",
+      "otherEntityRelationshipName": "pessoa",
+      "relationshipName": "pessoaFisca"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pessoaJuridica",
+      "otherEntityRelationshipName": "pessoa",
+      "relationshipName": "pessoaJuridica"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pessoaMedico",
+      "otherEntityRelationshipName": "pessoa",
+      "relationshipName": "pessoaMedico"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pessoaCriacao",
+      "otherEntityRelationshipName": "pessoa",
+      "relationshipName": "pessoaCriacao"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "empresaApp",
+      "otherEntityRelationshipName": "pessoa",
+      "relationshipName": "empresaApp"
+    }
+  ],
+  "entityTableName": "pessoa",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["core"],
+  "microserviceName": "core",
+  "clientRootFolder": "core",
+  "databaseType": "sql",
+  "changelogDate": "20210909141846"
+}

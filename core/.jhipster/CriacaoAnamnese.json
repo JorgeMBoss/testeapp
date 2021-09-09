@@ -1,0 +1,44 @@
+{
+  "name": "CriacaoAnamnese",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "descricao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idMedico",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "empresaApp",
+      "otherEntityRelationshipName": "criacaoAnamnese",
+      "relationshipName": "empresaApp"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "criacao",
+      "otherEntityRelationshipName": "criacaoAnamnese",
+      "relationshipName": "criacao"
+    }
+  ],
+  "entityTableName": "criacao_anamnese",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["core"],
+  "microserviceName": "core",
+  "clientRootFolder": "core",
+  "databaseType": "sql",
+  "changelogDate": "20210909142046"
+}

@@ -1,0 +1,238 @@
+application {
+  config {
+    baseName gateway 
+    reactive true 
+    packageName com.mboss.gateway
+    applicationType gateway
+    authenticationType oauth2 
+    buildTool maven
+    prodDatabaseType postgresql
+    serviceDiscoveryType eureka
+    testFrameworks [cucumber]
+    languages [pt-br]
+  }
+  entities User, Authority
+}
+
+application {
+  config {
+    baseName core
+    reactive true
+    packageName com.mboss.core
+    applicationType microservice 
+    authenticationType oauth2
+    buildTool maven
+    databaseType sql
+    devDatabaseType h2Disk
+    prodDatabaseType postgresql
+    enableHibernateCache false
+    serverPort 8081
+    serviceDiscoveryType eureka
+    languages [pt-br]
+    
+  }
+  entities User, Authority, UserApp, EmpresaApp, 
+  		   Pessoa, PessoaColaborador, PessoaComplemento, PessoaEndereco, PessoaFuncao,
+           PessoaFisca, PessoaJuridica, PessoaParentesco, PessoaMedico, PessoaCriacao,
+           Criacao, CriacaoAnamnese, CriacaoConsumo, CriacaoCor, CriacaoEspecie, CriacaoRaca
+}
+
+entity Authority {
+  name String maxlength(50) unique
+}
+
+entity User {
+  id String required unique
+  login String minlength(1) maxlength(50) required
+  firstname String maxlength(50)
+  lastname String maxlength(50)
+  email String minlength(5) maxlength(255) unique
+  activated Boolean
+  langKey String minlength(2) maxlength(10)
+  imageUrl String maxlength(255)
+}
+
+entity UserApp {
+  id Long
+}
+
+entity EmpresaApp {
+  id Long unique
+  razaoSocial String minlength(1) maxlength(60) unique
+  nomeFantasia String minlength(2) maxlength(255)    
+}
+
+entity Pessoa {
+	id Long unique
+  	idEmpresa Long
+    dataCadastro LocalDate   
+    ativo Boolean
+}
+
+entity PessoaColaborador {
+	id Long unique
+    dataAdimissao LocalDate
+    dataSaida LocalDate
+    cargaHoraria Long
+    
+    primeiroHorario ZonedDateTime
+    segundoHorario ZonedDateTime
+    
+  	salario Double
+    comissao Double
+    descontoMaximo Double
+}
+entity PessoaComplemento {
+  	id Long unique
+    ie Long 
+    im Long
+    email String 
+    
+}
+
+entity PessoaFisca{
+	id Long unique
+    cpf String unique minlength(11) maxlength(11)
+    rg String unique
+    
+    dataNascimento LocalDate
+    idade Integer
+    sexo String 
+    cor String 
+  	estadoCivil String
+    naturalidade String 
+    nacionalidade String 
+
+}
+
+entity PessoaJuridica{
+	id Long unique 
+    cnpj String unique minlength(14) maxlength(14)
+    nomeRazao String 
+    nomeFantasia String 
+    
+}
+
+entity PessoaEndereco {
+ 	id Long unique
+    pais String 
+    estado String 
+    cidade String 
+    bairro String 
+    numeroResidencia Integer
+    logradouro String
+    complemento String
+    
+}
+entity PessoaFuncao {
+  	id Long unique
+    descricao String required
+    ativo Boolean 
+}
+
+entity PessoaParentesco{
+	id Long
+    cpf String unique
+    nome String 
+    email String 
+}
+
+entity PessoaMedico{
+	id Long 
+    crm String required unique
+}
+
+
+entity PessoaCriacao{
+	id Long 
+    idCriacao Long
+}
+
+entity Criacao {
+	id Long unique
+    idEmpresa Long required
+    nome String required
+    sexo String
+    porte String 
+    idade Integer
+    dataNascimento LocalDate
+    castrado Boolean
+    anotacao String
+    pedigree Boolean
+    ativo Boolean
+}
+
+entity CriacaoAnamnese{
+	id Long
+	descricao String 
+    idMedico Long
+}
+entity CriacaoConsumo{
+	id Long
+    dataSistema LocalDate
+    dataVenda LocalDate
+    dataAviso LocalDate
+    anotacao String 
+    status Boolean
+}
+entity CriacaoCor{
+	id Long
+	descricao String 
+    ativo Boolean
+}
+entity CriacaoEspecie{
+	id Long
+	descricao String 
+    ativo Boolean
+}
+entity CriacaoRaca{
+	id Long
+	descricao String 
+    ativo Boolean
+}
+
+relationship OneToOne {
+  UserApp to User 
+  PessoaFisca to  PessoaComplemento
+  PessoaJuridica to  PessoaComplemento
+  PessoaColaborador to PessoaFuncao
+  Criacao to CriacaoCor
+  Criacao to CriacaoRaca
+  Criacao to CriacaoEspecie
+}
+
+relationship ManyToMany {
+  EmpresaApp to UserApp
+  
+}
+
+relationship OneToMany {
+  EmpresaApp to Pessoa
+  EmpresaApp to Criacao
+  EmpresaApp to CriacaoAnamnese  
+  Pessoa to PessoaEndereco
+  Pessoa to PessoaEndereco
+  Pessoa to PessoaColaborador
+  Pessoa to PessoaFisca
+  Pessoa to PessoaJuridica
+  PessoaFisca to PessoaParentesco
+  Pessoa to PessoaMedico
+  Pessoa to PessoaCriacao
+  PessoaCriacao to Criacao
+  Criacao to CriacaoAnamnese
+  EmpresaApp to CriacaoConsumo
+  
+}
+
+deployment { 
+  deploymentType docker-compose
+  appsFolders [gateway, core]
+  dockerRepositoryName "mraible"
+}
+
+
+paginate EmpresaApp with pagination
+paginate Pessoa with pagination
+paginate Criacao with pagination
+paginate CriacaoAnamnese with pagination
+paginate CriacaoConsumo with pagination
