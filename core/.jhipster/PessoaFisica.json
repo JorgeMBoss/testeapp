@@ -1,0 +1,84 @@
+{
+  "name": "PessoaFisica",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "cpf",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique", "minlength", "maxlength"],
+      "fieldValidateRulesMinlength": "11",
+      "fieldValidateRulesMaxlength": "11"
+    },
+    {
+      "fieldName": "rg",
+      "fieldType": "String",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "dataNascimento",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "idade",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sexo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cor",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "estadoCivil",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "naturalidade",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nacionalidade",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "pessoaComplemento",
+      "otherEntityRelationshipName": "pessoaFisica",
+      "relationshipName": "pessoaComplemento",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "pessoaParentesco",
+      "otherEntityRelationshipName": "pessoaFisica",
+      "relationshipName": "pessoaParentesco"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pessoa",
+      "otherEntityRelationshipName": "pessoaFisica",
+      "relationshipName": "pessoa"
+    }
+  ],
+  "entityTableName": "pessoa_fisica",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["core"],
+  "microserviceName": "core",
+  "clientRootFolder": "core",
+  "databaseType": "sql",
+  "changelogDate": "20210910140603"
+}

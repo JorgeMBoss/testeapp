@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity CriacaoConsumo.
+    -->
+    <changeSet id="20210910141303-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="criacao_consumo_id"
+                                 baseTableName="rel_criacao_consumo__criacao"
+                                 constraintName="fk_rel_criacao_consumo__criacao__criacao_consumo_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="criacao_consumo"/>
+
+        <addForeignKeyConstraint baseColumnNames="criacao_id"
+                                 baseTableName="rel_criacao_consumo__criacao"
+                                 constraintName="fk_rel_criacao_consumo__criacao__criacao_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="criacao"/>
+    </changeSet>
+</databaseChangeLog>
