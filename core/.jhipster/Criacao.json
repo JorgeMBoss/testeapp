@@ -1,0 +1,108 @@
+{
+  "name": "Criacao",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long",
+      "fieldValidateRules": ["unique"]
+    },
+    {
+      "fieldName": "idEmpresa",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "nome",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "sexo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "porte",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "idade",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dataNascimento",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "castrado",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "anotacao",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pedigree",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "ativo",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "criacaoCor",
+      "otherEntityRelationshipName": "criacao",
+      "relationshipName": "criacaoCor",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "criacaoRaca",
+      "otherEntityRelationshipName": "criacao",
+      "relationshipName": "criacaoRaca",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "criacaoEspecie",
+      "otherEntityRelationshipName": "criacao",
+      "relationshipName": "criacaoEspecie",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "pessoaCriacao",
+      "otherEntityRelationshipName": "criacao",
+      "relationshipName": "pessoaCriacao"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "criacaoAnamnese",
+      "otherEntityRelationshipName": "criacao",
+      "relationshipName": "criacaoAnamnese",
+      "ownerSide": false
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "criacaoConsumo",
+      "otherEntityRelationshipName": "criacao",
+      "relationshipName": "criacaoConsumo",
+      "ownerSide": false
+    }
+  ],
+  "entityTableName": "criacao",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "applications": ["core"],
+  "microserviceName": "core",
+  "clientRootFolder": "core",
+  "databaseType": "sql",
+  "changelogDate": "20210910141103"
+}

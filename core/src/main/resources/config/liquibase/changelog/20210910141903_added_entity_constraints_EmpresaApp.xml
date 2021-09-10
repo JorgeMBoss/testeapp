@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity EmpresaApp.
+    -->
+    <changeSet id="20210910141903-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="empresa_app_id"
+                                 baseTableName="rel_empresa_app__user_app"
+                                 constraintName="fk_rel_empresa_app__user_app__empresa_app_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="empresa_app"/>
+
+        <addForeignKeyConstraint baseColumnNames="user_app_id"
+                                 baseTableName="rel_empresa_app__user_app"
+                                 constraintName="fk_rel_empresa_app__user_app__user_app_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="user_app"/>
+    </changeSet>
+</databaseChangeLog>
